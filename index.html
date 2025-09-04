@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kingsley Nsa - Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { background: #f4f4f4; color: #222; line-height: 1.6; }
+    header { background: linear-gradient(to right, #0f2027, #203a43, #2c5364); color: white; text-align: center; padding: 3rem 1rem; }
+    header h1 { font-size: 2.5rem; }
+    header p { margin-top: 0.5rem; font-size: 1.2rem; }
+    .header-buttons { margin-top: 1.5rem; }
+    .header-buttons button {
+      background: #2c5364; color: white; border: none; padding: 0.8rem 1.5rem;
+      margin: 0.5rem; border-radius: 8px; cursor: pointer; font-size: 1rem;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .header-buttons button:hover { background: #203a43; transform: scale(1.05); }
+    section { padding: 3rem 1rem; max-width: 1000px; margin: auto; }
+    .about h2, .gallery h2, .contact h2 { text-align: center; margin-bottom: 1.5rem; color: #203a43; }
+    .about p { font-size: 1.1rem; text-align: center; max-width: 800px; margin: auto; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .gallery-item { position: relative; overflow: hidden; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.3s; }
+    .gallery-item:hover { transform: scale(1.05); }
+    .gallery-item img { width: 100%; height: 300px; object-fit: cover; display: block; }
+    .skill-tag { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 0.5rem; text-align: center; font-size: 1rem; }
+    footer { text-align: center; padding: 2rem 1rem; background: #0f2027; color: white; }
+    .contact-form { margin-top: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; text-align: left; }
+    .contact-form label { display: block; margin-bottom: 0.5rem; font-weight: bold; color: #ddd; }
+    .contact-form input, .contact-form textarea {
+      width: 100%; padding: 0.7rem; margin-bottom: 1rem;
+      border: none; border-radius: 5px; font-size: 1rem;
+    }
+    .contact-form button { background: #2c5364; color: white; padding: 0.8rem 1.5rem; border: none; border-radius: 5px; cursor: pointer; font-size: 1rem; }
+    .contact-form button:hover { background: #203a43; }
+    .modal {
+      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7); justify-content: center; align-items: center;
+    }
+    .modal-content {
+      background: #fff; padding: 2rem; border-radius: 10px; width: 90%; max-width: 400px;
+      text-align: left; animation: fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn { from {opacity: 0; transform: scale(0.9);} to {opacity: 1; transform: scale(1);} }
+    .close-btn { float: right; font-size: 1.2rem; cursor: pointer; color: #333; }
+    .modal-content h3 { margin-bottom: 1rem; color: #203a43; }
+    .modal-content input, .modal-content textarea, .modal-content select {
+      width: 100%; padding: 0.7rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 5px;
+    }
+    .modal-content button { background: #2c5364; color: white; padding: 0.7rem 1.2rem; border: none; border-radius: 5px; cursor: pointer; }
+    .modal-content button:hover { background: #203a43; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hello, I'm Kingsley Nsa 👋</h1>
+    <p>Web Developer | Prompt Engineer | Entrepreneur | Teacher | Tech & AI Enthusiast</p>
+    <p>From Cross River State, Nigeria</p>
+    <div class="header-buttons">
+      <button id="hireBtn">Hire Me</button>
+      <button onclick="document.querySelector('footer').scrollIntoView({behavior:'smooth'})">Contact Me</button>
+    </div>
+  </header>
+
+  <section class="about">
+    <h2>About Me</h2>
+    <p>
+      I am passionate about creating simple and powerful digital solutions. As a <strong>Web Developer</strong>, I craft clean and responsive websites. As a <strong>Prompt Engineer</strong>, I explore ways to make AI more effective for everyday use. Being an <strong>Entrepreneur</strong> drives me to build impactful ideas, while teaching allows me to share knowledge and inspire others. I truly love everything about <strong>Technology</strong> and <strong>Artificial Intelligence</strong>.
+    </p>
+  </section>
+
+  <section class="gallery">
+    <h2>My Gallery</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="photo1.jpeg" alt="Kingsley Nsa Photo 1">
+        <div class="skill-tag">💻 Web Developer</div>
+      </div>
+      <div class="gallery-item">
+        <img src="photo2.jpg" alt="Kingsley Nsa Photo 2">
+        <div class="skill-tag">🤖 Prompt Engineer</div>
+      </div>
+      <div class="gallery-item">
+        <img src="photo3.jpg" alt="Kingsley Nsa Photo 3">
+        <div class="skill-tag">📚 Teacher</div>
+      </div>
+      <div class="gallery-item">
+        <img src="photo4.jpg" alt="Kingsley Nsa Photo 4">
+        <div class="skill-tag">📈 Entrepreneur</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="contact">
+    <h2>Contact Me</h2>
+    <p>You can reach me at <strong>kingnsao1@gmail.com</strong> | Phone: <strong>08104269882</strong></p>
+
+    <form class="contact-form" action="process_form.php" method="POST">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your name" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="Your phone number" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+
+    <p style="margin-top: 2rem;">© 2025 Kingsley Nsa. All rights reserved. | 
+      <a href="projects.html" style="color:#fff; text-decoration:underline;">My Projects</a>
+    </p>
+  </footer>
+
+  <!-- Hire Me Modal -->
+  <div class="modal" id="hireModal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModal">&times;</span>
+      <h3>Hire Me</h3>
+      <p>Select one of the roles and leave me a short message.</p>
+      <form action="process_form.php" method="POST">
+        <label for="role">Role</label>
+        <select id="role" name="role" required>
+          <option value="Front-End Developer">Front-End Developer</option>
+          <option value="Prompt Engineer">Prompt Engineer</option>
+          <option value="Teacher">Teacher</option>
+        </select>
+
+        <label for="hireName">Name</label>
+        <input type="text" id="hireName" name="name" placeholder="Your name" required>
+
+        <label for="hirePhone">Phone Number</label>
+        <input type="tel" id="hirePhone" name="phone" placeholder="Your phone number" required>
+
+        <label for="hireMsg">Message</label>
+        <textarea id="hireMsg" name="message" placeholder="Write your message..." required></textarea>
+
+        <button type="submit">Send Request</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const hireBtn = document.getElementById('hireBtn');
+    const hireModal = document.getElementById('hireModal');
+    const closeModal = document.getElementById('closeModal');
+
+    hireBtn.addEventListener('click', () => {
+      hireModal.style.display = 'flex';
+    });
+
+    closeModal.addEventListener('click', () => {
+      hireModal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === hireModal) {
+        hireModal.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
